@@ -2,12 +2,11 @@ import { Tabs } from "expo-router";
 import React from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import IconEntypo from "react-native-vector-icons/Entypo";
-import { Container } from "../../styles/main.style";
+import { View } from "react-native";
 
 export default function MainLayout() {
   return (
-    <Tabs
-    >
+    <Tabs>
       <Tabs.Screen
         name="index"
         options={{
@@ -42,6 +41,10 @@ export default function MainLayout() {
             <Icon name="fast-food-sharp" color="#e7562aff" size={28} />
           ),
         }}
+      />
+      <Tabs.Screen
+        name="stores/[id]/index"
+        options={{ href: null, headerShown: false, tabBarShowLabel: false }}
       />
     </Tabs>
   );

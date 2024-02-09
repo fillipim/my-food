@@ -1,14 +1,21 @@
 import React from "react";
 import { Flex } from "../../../styles/main.style";
 import { StoreCard } from "../../../components/StoreCard";
+import { ScrollView } from "react-native";
 
 export default function Stores() {
   return (
-    <Flex gap={5} paddingTop={20} paddingHorizontal={10}>
-        <StoreCard/>
-        <StoreCard/>
-        <StoreCard/>
-        <StoreCard/>
-    </Flex>
+    <ScrollView>
+      <Flex gap={5} paddingTop={20} paddingLeft={10} paddingRight={10}>
+        <StoreCard />
+        <StoreCard />
+        <StoreCard />
+        <StoreCard />
+        <StoreCard />
+        <StoreCard />
+        <StoreCard />
+        <StoreCard />
+      </Flex>
+    </ScrollView>
   );
-};
+}

@@ -25,7 +25,10 @@ const ProductCard = () => {
           <Text style={{ fontSize: 14 }}>Nome do produto</Text>
           <Text style={{ color: "#3cae03", marginLeft: 20 }}>R$ 10,00</Text>
         </View>
-        <Text style={{ fontSize: 10, color: "#868686" }} numberOfLines={2}>
+        <Text
+          style={{ fontSize: 10, color: "#868686"}}
+          numberOfLines={2}
+        >
           Jogadô de futibou muíto bon que quai no campu ha cadah sinco minutus
         </Text>
       </Flex>
