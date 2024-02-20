@@ -1,11 +1,15 @@
 import { FlexStyle } from "react-native";
 import styled from "styled-components/native";
 
+interface FlexProps extends FlexStyle {
+  backgroundColor?: string;
+}
+
 export const Container = styled.View`
   padding: 10px;
 `;
 
-export const Flex = styled.View<FlexStyle>`
+export const Flex = styled.View<FlexProps>`
   justify-content: ${({ justifyContent }) =>
     justifyContent ? justifyContent : "start"};
   align-items: ${({ alignItems }) => (alignItems ? alignItems : "start")};
@@ -17,6 +21,8 @@ export const Flex = styled.View<FlexStyle>`
     paddingBottom ? `${paddingBottom}px` : "0px"};
   padding-left: ${({ paddingLeft }) =>
     paddingLeft ? `${paddingLeft}px` : "0px"};
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor ?? "transparent"};
 `;
 
 export const Title = styled.Text<{

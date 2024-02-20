@@ -51,6 +51,16 @@ export default function MainLayout() {
         name="products/[id]/index"
         options={{ href: null, headerShown: false, tabBarShowLabel: false }}
       />
+      <Tabs.Screen
+        name="profile/index"
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: () => (
+            <IconEntypo name="user" color="#e7562aff" size={28} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

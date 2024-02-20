@@ -24,5 +24,4 @@ export const BuyButton = styled.TouchableOpacity`
   padding-bottom: 10px;
   align-self: center;
   border-radius: 20px;
-  margin-top: auto;
 `;
