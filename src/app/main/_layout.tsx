@@ -46,6 +46,11 @@ export default function MainLayout() {
         name="stores/[id]/index"
         options={{ href: null, headerShown: false, tabBarShowLabel: false }}
       />
+
+      <Tabs.Screen
+        name="products/[id]/index"
+        options={{ href: null, headerShown: false, tabBarShowLabel: false }}
+      />
     </Tabs>
   );
 }

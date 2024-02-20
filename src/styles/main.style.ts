@@ -18,3 +18,26 @@ export const Flex = styled.View<FlexStyle>`
   padding-left: ${({ paddingLeft }) =>
     paddingLeft ? `${paddingLeft}px` : "0px"};
 `;
+
+export const Title = styled.Text<{
+  titleLevel: 1 | 2 | 3 | 4;
+  textAlign?: string;
+}>`
+  font-size: ${({ titleLevel }) => {
+    switch (titleLevel) {
+      case 1:
+        return "38px";
+      case 2:
+        return "24px";
+      case 3:
+        return "18px";
+      case 4:
+        return "16px";
+      default:
+        return "18px";
+    }
+  }};
+  font-weight: bold;
+  color: #000;
+  text-align: ${({ textAlign }) => textAlign ?? "left"};
+`;

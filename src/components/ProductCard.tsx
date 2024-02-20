@@ -3,10 +3,11 @@ import { ProductCardBox } from "../styles/stores.style";
 import { ProductCardProps } from "../types/stores";
 import { Image, Text, View } from "react-native";
 import { Flex } from "../styles/main.style";
+import { router } from "expo-router";
 
 const ProductCard = () => {
   return (
-    <ProductCardBox>
+    <ProductCardBox onPress={() => router.push("/main/products/1")}>
       <Image
         src="https://placehold.co/60x60/png"
         style={{
@@ -16,7 +17,7 @@ const ProductCard = () => {
           borderBottomLeftRadius: 5,
         }}
       />
-      <Flex>
+      <Flex style={{ flex: 1 }}>
         <View
           style={{
             flexDirection: "row",
@@ -25,10 +26,7 @@ const ProductCard = () => {
           <Text style={{ fontSize: 14 }}>Nome do produto</Text>
           <Text style={{ color: "#3cae03", marginLeft: 20 }}>R$ 10,00</Text>
         </View>
-        <Text
-          style={{ fontSize: 10, color: "#868686"}}
-          numberOfLines={2}
-        >
+        <Text style={{ fontSize: 10, color: "#868686", flex: 1 }}>
           Jogadô de futibou muíto bon que quai no campu ha cadah sinco minutus
         </Text>
       </Flex>
