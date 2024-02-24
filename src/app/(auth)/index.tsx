@@ -9,12 +9,31 @@ import {
   FormBox,
 } from "../../styles/auth.style";
 import { Text } from "react-native";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginValidation } from "../../validations/auth.validation";
+import { useAuth } from "../../contexts/AuthContext";
+import { LoginRequest } from "../../types/contexts";
 
 export default function Login() {
+  const { singIn } = useAuth();
+  const { register, setValue, handleSubmit, reset } = useForm({
+    resolver: yupResolver(loginValidation),
+  });
 
-  const handleLogin = () => {
-    router.push("/main");
-  }
+  useEffect(() => {
+    register("email");
+    register("password");
+  }, [register]);
+
+  useEffect(() => {
+    reset();
+  }, []);
+  
+  const handleLogin = (value: LoginRequest) => {
+    singIn(value);
+  };
 
   return (
     <FormBox>
@@ -24,10 +43,15 @@ export default function Login() {
         label="Email:"
         placeholder="digite seu email..."
         keyboardType="email-address"
+        onChangeText={(text) => setValue("email", text)}
       />
-      <Input label="Senha:" placeholder="digite sua senha..." />
+      <Input
+        label="Senha:"
+        placeholder="digite sua senha..."
+        onChangeText={(text) => setValue("password", text)}
+      />
 
-      <AuthButton onPress={handleLogin}>
+      <AuthButton onPress={handleSubmit(handleLogin)}>
         <Text style={{ textAlign: "center", color: "#fff" }}>Entrar</Text>
       </AuthButton>
 

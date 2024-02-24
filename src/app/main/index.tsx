@@ -3,8 +3,11 @@ import { Container, Flex } from "../../styles/main.style";
 import { Link } from "expo-router";
 import { StoreCard } from "../../components/StoreCard";
 import ProductCard from "../../components/ProductCard";
+import { useStore } from "../../contexts/StoreContext";
 
 export default function MainPage() {
+  const { stores, products } = useStore();
+
   return (
     <Container>
       <ScrollView>
@@ -20,10 +23,9 @@ export default function MainPage() {
           paddingTop={20}
           rowGap={5}
         >
-          <StoreCard />
-          <StoreCard />
-          <StoreCard />
-          <StoreCard />
+          {stores.map((store) => (
+            <StoreCard key={store.id} {...store} />
+          ))}
         </Flex>
         <Flex
           justifyContent="space-between"
@@ -36,10 +38,9 @@ export default function MainPage() {
           </Link>
         </Flex>
         <Flex paddingTop={20} gap={5}>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {products.map((product, index) => (
+            <ProductCard key={product.id + index} {...product} />
+          ))}
         </Flex>
       </ScrollView>
     </Container>
